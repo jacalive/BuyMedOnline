@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'BuyMedOnline.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'MedProject',
+        'USER': 'root',
+        'PASSWORD':'123456',
+        'HOST':'118.25.16.25',
+        'PORT':'3306',
     }
 }
 
