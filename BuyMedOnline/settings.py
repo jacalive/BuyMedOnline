@@ -58,7 +58,7 @@ ROOT_URLCONF = 'BuyMedOnline.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,6 +85,10 @@ DATABASES = {
         'PASSWORD':'123456',
         'HOST':'118.25.16.25',
         'PORT':'3306',
+        'OPTIONS':{
+        'init_command':"SET sql_mode='STRICT_TRANS_TABLES'",
+        'charset':'utf8mb4',
+        },
     }
 }
 
