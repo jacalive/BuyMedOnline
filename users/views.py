@@ -6,7 +6,7 @@ def register(request):
 	if request.method=='POST':
 		form=RegisterForm(request.POST)
 
-		if form.is_vaild():
+		if form.is_valid():
 			form.save()
 		return redirect('/')
 	else:
