@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'cart',
     'checkout',
     'users',
+    'BuyMed',
 ]
 
 MIDDLEWARE = [
