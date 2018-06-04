@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect
 from .forms import RegisterForm
 
+
+
 # Create your views here.
 def register(request):
 	redirect_to=request.POST.get('next',request.GET.get('next',''))
@@ -20,5 +22,3 @@ def register(request):
 
 def index(request):
 	return render(request,'index.html')
-
-

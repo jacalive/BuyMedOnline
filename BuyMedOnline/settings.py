@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'checkout',
     'users',
     'BuyMed',
-    'orders',
 ]
 
 CART_SESSION_ID = 'cart'
@@ -139,6 +138,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_PATH = os.path.join(BASE_DIR, 'static')
 
-LOGOUT_REDIRECT_URL = '/'
-LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/BuyMed/product'
+LOGIN_REDIRECT_URL = '/BuyMed/product'

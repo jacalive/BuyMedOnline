@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+import BuyMed
 
 
 urlpatterns = [
@@ -26,6 +27,7 @@ urlpatterns = [
     path('index/', include('users.urls', namespace='users')),
     path('BuyMed/', include('BuyMed.urls', namespace='BuyMed')),
     path('cart/', include('cart.urls', namespace='cart')),
+    path('checkout/', include('checkout.urls', namespace='checkout')),
 ]
 
 if settings.DEBUG:

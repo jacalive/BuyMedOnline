@@ -29,7 +29,7 @@ def product_detail(request, id, slug):
 
 def product_name_search(request, search_thing=None):
 	if search_thing == None:
-		search_thing = request.GET.get('search_thing')
+		search_thing = request.GET.get('search_thing'）
 	error_message = ''		
 	print(search_thing)
 	# search_condition = {'name__icontains': search_thing, 'description__icontains': search_thing}
