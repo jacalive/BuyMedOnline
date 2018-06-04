@@ -36,3 +36,4 @@ class Product(models.Model):
 	def get_absolute_url(self):
 		return reverse('BuyMed:product_detail',
 						args=[self.id, self.slug])
+
