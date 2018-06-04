@@ -12,7 +12,6 @@
                     <th>数量</th>
                     <th>单价</th>
                     <th>总价</th>
-                    <th>操作</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,33 +20,18 @@
                     <tr>
                         <td><img src="{{ product.image.url }}" height=100px></td>
                         <td>{{ product.name }}</td>
-                        <td>
-                            <form action="{% url "cart:cart_add" product.id %}" method="post">
-                                {{ item.update_quantity_form.quantity }}
-                                {{ item.update_quantity_form.update }}
-                                <input type="submit" value="更新">
-                                {% csrf_token %}
-                            </form>
-                        </td>                        
+                        <td>{{ product.number }}</td>                        
                         <td class="num">${{ item.price }}</td>
                         <td class="num">${{ item.total_price }}</td>
-                        <td><a href="{% url 'cart:cart_remove' product.id %}" class="mdui-btn mdui-color-pink-accent mdui-btn-ripple">删除</a></td>
                     </tr>
                     {% endwith %}
                 {% endfor %}
                 <tr class="total">
                     <td colspan="4"></td>
                     <td class="num">${{ cart.get_total_price }}</td>
-                    <td><a class="mdui-btn mdui-color-pink-accent mdui-btn-ripple" mdui-dialog="{target: '#checkoutDialog'}">结算</a></td>
                 </tr>
             </tbody>
         </table>
-    </div>
-</div>
-<div class="mdui-dialog" id="checkoutDialog">
-    <div class="mdui-dialog-content">支付中...</div>
-    <div class="mdui-dialog-actions">
-        <button class="mdui-btn mdui-ripple mdui-color-pink-accent" mdui-dialog-close>取消</button>
     </div>
 </div>
 {% endblock %}
