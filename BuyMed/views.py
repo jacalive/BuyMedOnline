@@ -25,3 +25,34 @@ def product_detail(request,id,slug):
 				'BuyMed/product/detail.html',
 				{'product':product,
 				'cart_product_form': cart_product_form})
+
+def product_name_search(request):
+	search_thing=request.GET.get('search_thing')
+	error_message=''
+
+	if not search_thing:
+		error_message='请输入您要查找的药品名称'
+		return render(request,'BuyMed/product/error.html',
+		{'error_message':error_message})
+
+	product=get_object_or_404(Product,name__contains=search_thing,available=True)
+	return render(request,
+				'BuyMed/product/candidate.html',
+				{'product',product})
+
+def product_category_search(request):
+	search_thing=request.GET.get('search_thing')
+	error_message=''
+
+	if not search_thing:
+		error_message='请输入您要查找的疾病'
+		return render(request,'BuyMed/product/error.html',
+		{'error_message':error_message})
+
+	category_id=Category.objects.get(name__contains=search_thing)
+	product_find=category_id.product_set.all
+
+	product=get_object_or_404(product_find,available=True)
+	return render(request,
+				'BuyMed/product/candidate.html',
+				{'product',product})
